@@ -78,8 +78,12 @@ print(f"Pary znakow: {pairs}")
 byte_messages = []
 for idx, pair in enumerate(pairs):
     byte_message = convert_to_bytes(pair)
+    print(f'{pair} na bity: {byte_message}')
     message_with_placeholders = determine_control_bit_place(byte_message)        
-    byte_messages.append(compute_control_bit(message_with_placeholders))
+    print(f'{pair} dodane bity kontrolne: {message_with_placeholders}')
+    computed_control_bits = compute_control_bit(message_with_placeholders)
+    byte_messages.append(computed_control_bits)
+    print(f'{pair} obliczone bity kontrolne: {computed_control_bits}')
 
 prepared_message = "".join(byte_messages)
 print(f"Gotowa wiadomosc: {prepared_message}")
